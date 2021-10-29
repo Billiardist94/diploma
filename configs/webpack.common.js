@@ -23,8 +23,19 @@ module.exports = {
         use: { loader: 'babel-loader' },
       },
       {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
+      },
+      {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ['css-loader', 'style-loader', 'sass-loader'],
       },
       {
         test: /\.html$/,
@@ -33,6 +44,10 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif)$/i,
         loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'images',
+        },
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,

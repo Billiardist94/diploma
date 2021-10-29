@@ -1,5 +1,6 @@
 import React from 'react';
 import './Intro.scss';
+import intro from '../../img/intro-image.png';
 
 const Intro = () => {
   return (
@@ -16,7 +17,7 @@ const Intro = () => {
             </button>
           </div>
           <div className="intro-image">
-            <img src="../../../images/intro-image.png" alt="intro-image" height="358" width="668" />
+            <img src={intro} alt="intro-image" height="358" width="668" />
           </div>
         </div>
       </div>
